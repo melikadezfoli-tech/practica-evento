@@ -4,6 +4,11 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    
+}
+
+body {
+    width: 100%;
 }
 
 img {
@@ -52,29 +57,42 @@ footer {
 .flexContainer {
     display:flex;
     flex-wrap: wrap;
+    width:95%;
+    gap: 10%;
+    box-sizing: content-box;
     justify-content: center;
-    width:100%;
-    gap: 20%;
+    box-sizing: content-box;
+    padding: 20px;
+    
            
 }
 
 nav {
     margin-top: 10%;
     margin-bottom: 10%;
-    padding: 20px;
-    width: 100%;
-    box-sizing: content-box;
+   
 }
+
+ul {
+    display:flex;
+    flex-wrap: wrap;
     
+}
 
 li {
-    display:inline;
-    justify-content: space-between;
+    display:inline-flex;
+    flex-direction: row;
     background-color: darkslategrey;
-    border-radius: 2px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
+p {
+    font-size: 20px;
+    justify-content: center;
+    
 }
 
 
@@ -85,7 +103,7 @@ li {
 @media screen and (min-width:768px) {
     
     .flexContainer>* {
-        width: calc(50% - 20px);
+        width: calc(45% - 20px);
     }
 }
 
@@ -98,13 +116,13 @@ li {
 @media screen and (min-width:992px) {
    
     .flexContainer>* {
-        width: calc(25% - 20px);
+        width: calc(50% - 20px);
     }
 }
 
 /* 992px */
 
-/* ===============================
+/*===============================
             1200px
 =================================== */
 
