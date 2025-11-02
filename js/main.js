@@ -1,15 +1,17 @@
-//1.- Variables
+document.addEventListener('DOMContentLoaded', ()=> {
+    //1.- Variables
 
-//Capturar elementos del DOM
-const imgEncontradas = document.querySelector('#Imagenes encontradas img');
-const imgRelacionadas = document.querySelector('#IMAGENES RELACIONADAS .flexContainer');
-const urlBase = "assets";
+    //Capturar elementos del DOM
+    const imgEncontradas = document.querySelector('#Imagenes encontradas img');
+    const imgRelacionadas = document.querySelector('#IMAGENES RELACIONADAS .flexContainer');
+    const urlBase = "assets";
 
 
- //array botones = [];
+    const arraybotones = ['playa','mar','arena','Cancún','cabaña','Seychelles','ciudad','Europa','Monumento','Munich','Amsterdam','London',"plaza", "sevilla","arquitectura","Costa","Asturias", "montaña","Cazorla","Jaén", "Castillo"];
 
-const arrayFotos = [
+    const arrayFotos = [
     {
+        id:1,
         src:"assets/viajes-1.jpg",
         alt:"Cancún playa",
         titulo:"playazonas costeras",
@@ -19,6 +21,7 @@ const arrayFotos = [
     },
 
     {
+        id:2,
         src:"assets/viajes-2.jpg",
         alt:"Cabaña playa",
         titulo:"Cabañas en la playa",
@@ -28,6 +31,7 @@ const arrayFotos = [
     },
   
     {
+        id:3,
         src:"assets/viajes-3.jpg",
         alt:"Destinos europeos",
         titulo:"ciudades europeas",
@@ -37,7 +41,8 @@ const arrayFotos = [
     },
     
     {
-        src:"assets/viajes-5.jpg",
+        id:4,
+        src:"assets/viajes-4.jpg",
         alt:"Plaza España",
         titulo:"Plaza España de Sevilla",
         descripcion:"Plaza España",
@@ -46,6 +51,7 @@ const arrayFotos = [
     },
 
     {
+        id:5,
         src:"assets/viajes-5.jpg",
         alt:"Plaza Sevilla",
         titulo:"plaza arquitectura antigua",
@@ -55,6 +61,7 @@ const arrayFotos = [
     },
 
     {
+        id:6,
         src:"assets/viajes-6.jpg",
         alt:"Paseo costero Asturias",
         titulo:"Paseo costero ",
@@ -64,6 +71,7 @@ const arrayFotos = [
     },
 
     {
+        id:7,
         src:"assets/viajes-7.jpg",
         alt:"Castillo Cazorla",
         titulo:"Castillo Jaén ",
@@ -71,9 +79,9 @@ const arrayFotos = [
         title:"Castillo Cazorla",
         tag:["montaña", "Cazorla","Jaén", "Castillo"]
     }
-];
+    ];
 
-const arrayEncontradas = [
+    const arrayEncontradas = [
     {
         src:"assets/viajes-1.jpg",
         alt:"Cancún playa",
@@ -136,11 +144,25 @@ const arrayEncontradas = [
         title:"Castillo Cazorla",
         tag:["montaña", "Cazorla","Jaén", "Castillo"]
     }
-];
+    ];
 
 
-//2.- Eventos
+    //2.- Eventos
 
-//3.-Funciones
+    /*Delegación de eventos*/
 
-//4.-Invocaciones
+    //3.-Funciones
+
+    const pintarBotones = () => {
+
+    }
+
+    const pintarImagen = () =>{
+
+    }
+
+    //4.-Invocaciones
+
+    pintarBotones()
+
+})

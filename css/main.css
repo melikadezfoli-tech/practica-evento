@@ -9,6 +9,8 @@
 
 body {
     width: 100%;
+    font-family: 'Agbalumo';font-size: 22px;
+    font-size: 16px;  
 }
 
 img {
@@ -32,11 +34,15 @@ h1,h2 {
     justify-content: center;
     align-items: center;
     box-sizing: content-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: seagreen;
     width: 100%;
-    
-   
+       
+}
+
+
+h1 {
+  
+  font-size: 46px;  
 }
 
 footer {
