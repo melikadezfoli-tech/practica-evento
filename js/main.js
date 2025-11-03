@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+/*document.addEventListener('DOMContentLoaded', ()=> {*/
     //1.- Variables
 
     //Capturar elementos del DOM
@@ -150,19 +150,41 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //2.- Eventos
 
     /*Delegación de eventos*/
+   /*document.addEventListener('click', (ev) => {
+       /* if (ev.target.matches('#botonera button')){
+            const tag=''29:41
+            filtrarImagenes(tag)
+
+            
+      /*  }
+    })*/
 
     //3.-Funciones
-
+    /*recorrer el array para pintar botones*/
+        /*1.-contar los tags repetidos y obtener un nuevo array con tags que se repitan más de una vez*/
     const pintarBotones = () => {
-
+        const tagRep = arrayFotos.reduce((conteo, objeto) => {
+        const tags = objeto.tag;
+        conteo[tags] = (conteo[tags] || 0) + 1;
+        return conteo;
+    }, {});
+        
     }
 
-    const pintarImagen = () =>{
+    console.log (pintarBotones);
+
+    /*filter*/
+    const filtrarImagenes=(tag) =>{
+        const imgsTag=arrayEncontradas.filter(tag);
+        return [imgsTag];
+        pintarImagen(array)
+    }
+
+    const pintarImagen = (array) =>{
+        const arrayParaPintar=filtrarImagenes() /*42:00*/
 
     }
 
     //4.-Invocaciones
 
-    pintarBotones()
-
-})
+    /*pintarBotones()*/
