@@ -1,14 +1,10 @@
-/*document.addEventListener('DOMContentLoaded', ()=> {*/
+document.addEventListener('DOMContentLoaded', ()=> {
     //1.- Variables
 
     //Capturar elementos del DOM
-    const imgEncontradas = document.querySelector('#Imagenes encontradas img');
-    const imgRelacionadas = document.querySelector('#IMAGENES RELACIONADAS .flexContainer');
-    const urlBase = "assets";
-
-
-    const arraybotones = ['playa','mar','arena','Cancún','cabaña','Seychelles','ciudad','Europa','Monumento','Munich','Amsterdam','London',"plaza", "sevilla","arquitectura","Costa","Asturias", "montaña","Cazorla","Jaén", "Castillo"];
-
+    const caja = document.querySelector('#caja');
+       //const arraybotones = ['playa','mar','arena','Cancún','cabaña','Seychelles','ciudad','Europa','Monumento','Munich','Amsterdam','London',"plaza", "sevilla","arquitectura","Costa","Asturias", "montaña","Cazorla","Jaén", "Castillo"];
+    const fragment= document.createDocumentFragment();
     const arrayFotos = [
     {
         id:1,
@@ -150,41 +146,68 @@
     //2.- Eventos
 
     /*Delegación de eventos*/
-   /*document.addEventListener('click', (ev) => {
-       /* if (ev.target.matches('#botonera button')){
-            const tag=''29:41
-            filtrarImagenes(tag)
-
-            
-      /*  }
-    })*/
-
+   
+       
     //3.-Funciones
     /*recorrer el array para pintar botones*/
         /*1.-contar los tags repetidos y obtener un nuevo array con tags que se repitan más de una vez*/
-    const pintarBotones = () => {
-        const tagRep = arrayFotos.reduce((conteo, objeto) => {
-        const tags = objeto.tag;
-        conteo[tags] = (conteo[tags] || 0) + 1;
-        return conteo;
-    }, {});
-        
-    }
-
-    console.log (pintarBotones);
+const pintarBotones = () => {
+  const contenedorBotones = document.querySelector('#botones'); 
+  const todosLosTags = arrayFotos.flatMap(objeto => objeto.tag);
+  const tagsUnicos = [...new Set(todosLosTags)];
+  tagsUnicos.forEach(tag => {
+    const boton = document.createElement('button');
+    boton.textContent = tag;
+    boton.classList.add('tag-button');
+    boton.addEventListener('click', () => {
+      const filtradas = filtrarImagenes(tag);
+      pintarImagen(filtradas);
+    });
+    contenedorBotones.append(boton);
+  });
+};
+const filtImagenes = (tagBuscado) => {
+  return arrayFotos.filter(objeto =>
+    objeto.tag.includes(tagBuscado)
+  );
+};
 
     /*filter*/
-    const filtrarImagenes=(tag) =>{
-        const imgsTag=arrayEncontradas.filter(tag);
-        return [imgsTag];
-        pintarImagen(array)
-    }
+    
 
-    const pintarImagen = (array) =>{
-        const arrayParaPintar=filtrarImagenes() /*42:00*/
+    const pintarImagen = () =>{
+        
+        arrayFotos.forEach((elemento)=>{
+            const card = document.createElement('article');
+            const tituloImg = document.createElement('h2');
+            tituloImg.textContent = elemento.titulo;
+            const cajaFoto = document.createElement('div');
+            const imagen = document.createElement ('img');
+            imagen.src = elemento.src;
+            imagen.alt = elemento.alt;
+            const desc = document.createElement('p');
+            desc.textContent = elemento.descripcion;
+            const boton = document.createElement ('button');
+            boton.textcontent = "Leer más";
+            boton.id = elemento.id;
 
-    }
+            cajaFoto.append(imagen);
+
+            card.append(tituloImg,cajaFoto,desc,boton);
+            fragment.append(card);
+        });
+
+      caja.append(fragment);
+
+    };
+    const filtrarImagenes=(tagBuscado) =>{
+        return arrayEncontradas.filter(objeto => 
+            objeto.tag.includes (tagBuscado)
+        );
+    };
 
     //4.-Invocaciones
 
-    /*pintarBotones()*/
+    pintarBotones()
+    pintarImagen()
+});
