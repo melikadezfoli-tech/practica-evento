@@ -52,8 +52,6 @@ footer {
     justify-content: center;
     width: 100%;
     background-color: slategray;
-    
-
 }
 
 .container {
@@ -65,7 +63,6 @@ footer {
     flex-wrap: wrap;
     width:95%;
     gap: 10%;
-    box-sizing: content-box;
     justify-content: center;
     box-sizing: content-box;
     padding: 20px;
@@ -98,6 +95,7 @@ li {
 p {
     font-size: 20px;
     justify-content: center;
+    padding: 20px;
     
 }
 

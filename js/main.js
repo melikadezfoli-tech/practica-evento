@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //Capturar elementos del DOM
     const caja = document.querySelector('#caja');
        //const arraybotones = ['playa','mar','arena','Cancún','cabaña','Seychelles','ciudad','Europa','Monumento','Munich','Amsterdam','London',"plaza", "sevilla","arquitectura","Costa","Asturias", "montaña","Cazorla","Jaén", "Castillo"];
-    const fragment= document.createDocumentFragment();
+    const contenedorBotones = document.querySelector('#botones'); 
+
+       const fragment= document.createDocumentFragment();
     const arrayFotos = [
     {
         id:1,
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"playazonas costeras",
         descripcion:"playa de arena blanca Cancún",
         title:"Cancún playa",
-        tag:["playa", "mar","arena", "Cancún",],
+        tag:["playa"],
     },
 
     {
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Cabañas en la playa",
         descripcion:"Cabañas en la playa",
         title:"Cabaña playa",
-        tag:["playa", "mar","arena","cabaña", "Seychelles",],
+        tag:["playa"],
     },
   
     {
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"ciudades europeas",
         descripcion:"principales ciudades de Europa",
         title:"iudades europeas",
-        tag:["ciudad", "Europa","Monumento","Munich","Amsterdam","London"],
+        tag:["ciudad"],
     },
     
     {
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Plaza España de Sevilla",
         descripcion:"Plaza España",
         title:"Plaza España",
-        tag:["plaza", "sevilla","arquitectura", "ciudad"],
+        tag:["ciudad"],
     },
 
     {
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"plaza arquitectura antigua",
         descripcion:"Plaza Sevilla",
         title:"Plaza Sevilla",
-        tag:["plaza", "sevilla","arquitectura", "ciudad"],
+        tag:["ciudad"],
     },
 
     {
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Paseo costero ",
         descripcion:"Carretera costa Asturias",
         title:"Paseo costero Asturias",
-        tag:["Costa", "playa","Asturias", "montaña"],
+        tag:["montaña"],
     },
 
     {
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Castillo Jaén ",
         descripcion:"Castillo en montaña",
         title:"Castillo Cazorla",
-        tag:["montaña", "Cazorla","Jaén", "Castillo"]
+        tag:["montaña"]
     }
     ];
 
@@ -84,7 +86,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"playazonas costeras",
         descripcion:"playa de arena blanca Cancún",
         title:"Cancún playa",
-        tag:["playa", "mar","arena", "Cancún",]
+        tag:["playa"]
     },
 
     {
@@ -93,7 +95,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Cabañas en la playa",
         descripcion:"Cabañas en la playa",
         title:"Cabaña playa",
-        tag:["playa", "mar","arena","cabaña", "Seychelles",]
+        tag:["playa"]
     },
   
     {
@@ -102,7 +104,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"ciudades europeas",
         descripcion:"principales ciudades de Europa",
         title:"iudades europeas",
-        tag:["ciudad", "Europa","Monumento","Munich","Amsterdam","London"]
+        tag:["ciudad"]
     },
     
     {
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Plaza España de Sevilla",
         descripcion:"Plaza España",
         title:"Plaza España",
-        tag:["plaza", "sevilla","arquitectura", "ciudad"]
+        tag:["ciudad"]
     },
 
     {
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"plaza arquitectura antigua",
         descripcion:"Plaza Sevilla",
         title:"Plaza Sevilla",
-        tag:["plaza", "sevilla","arquitectura", "ciudad"]
+        tag:["ciudad"]
     },
 
     {
@@ -129,7 +131,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Paseo costero ",
         descripcion:"Carretera costa Asturias",
         title:"Paseo costero Asturias",
-        tag:["Costa", "playa","Asturias", "montaña"]
+        tag:["playa","montaña"]
     },
 
     {
@@ -138,7 +140,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         titulo:"Castillo Jaén ",
         descripcion:"Castillo en montaña",
         title:"Castillo Cazorla",
-        tag:["montaña", "Cazorla","Jaén", "Castillo"]
+        tag:["montaña"]
     }
     ];
 
@@ -146,25 +148,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //2.- Eventos
 
     /*Delegación de eventos*/
-   
+ 
        
     //3.-Funciones
     /*recorrer el array para pintar botones*/
         /*1.-contar los tags repetidos y obtener un nuevo array con tags que se repitan más de una vez*/
+
 const pintarBotones = () => {
-  const contenedorBotones = document.querySelector('#botones'); 
-  const todosLosTags = arrayFotos.flatMap(objeto => objeto.tag);
-  const tagsUnicos = [...new Set(todosLosTags)];
-  tagsUnicos.forEach(tag => {
+    const todosLosTags = arrayFotos.flatMap(objeto => objeto.tag);
+    const tagsUnicos = [...new Set(todosLosTags)];
+    tagsUnicos.forEach(tag => {
     const boton = document.createElement('button');
-    boton.textContent = tag;
-    boton.classList.add('tag-button');
-    boton.addEventListener('click', () => {
-      const filtradas = filtrarImagenes(tag);
-      pintarImagen(filtradas);
-    });
+    boton.textContent = tag;   
     contenedorBotones.append(boton);
   });
+  boton.addEventListener('click', () => {
+      const filtradas = filtrarImagenes(tag);
+      pintarImagen(filtradas);
+    });  
 };
 const filtImagenes = (tagBuscado) => {
   return arrayFotos.filter(objeto =>
